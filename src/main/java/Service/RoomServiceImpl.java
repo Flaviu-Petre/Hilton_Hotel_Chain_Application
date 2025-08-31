@@ -39,5 +39,10 @@ public class RoomServiceImpl implements RoomServiceInterface {
         return roomRepository.getRoomsForHotel(hotelId);
     }
 
+    @Override
+    public List<Room> getAllRooms() {
+        return roomRepository.getAllRooms();
+    }
+
     //endregion
 }

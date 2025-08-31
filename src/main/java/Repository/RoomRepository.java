@@ -9,12 +9,13 @@ import java.util.List;
 public class RoomRepository {
     //region fields
     private List<Room> rooms;
-    HotelRepository hotelRepository = new HotelRepository();
+    HotelRepository hotelRepository;
     //endregion
 
     //region Constructors
     public RoomRepository() {
         this.rooms = new ArrayList<>();
+        this.hotelRepository = new HotelRepository();
     }
     //endregion
 
@@ -43,6 +44,10 @@ public class RoomRepository {
             }
         }
         return null;
+    }
+
+    public List<Room> getAllRooms() {
+        return rooms;
     }
 
     public List<Room> getRoomsForHotel(Integer hotelId) {

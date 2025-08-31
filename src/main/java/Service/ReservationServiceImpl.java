@@ -17,7 +17,7 @@ public class ReservationServiceImpl implements ReservationServiceInterface {
 
     //region Methods
     @Override
-    public void makeReservationForRoom(Reservation reservation, Integer room_number) {
+    public void makeReservationForRoom(Reservation reservation, String room_number) {
         reservationRepository.makeReservationForRoom(reservation, room_number);
     }
 

@@ -14,14 +14,15 @@ public class ReservationRepository {
     //endregion
 
     //region Constructors
-    public ReservationRepository(List<Reservation> reservations) {
+    public ReservationRepository() {
         this.reservations = new ArrayList<>();
+        this.roomRepository = new RoomRepository();
     }
     //endregion
 
     //region Methods
-    public void makeReservationForRoom(Reservation reservation, Integer room_number) {
-        Room roomToMakeReservation = roomRepository.getRoomByNumber(room_number.toString());
+    public void makeReservationForRoom(Reservation reservation, String room_number) {
+        Room roomToMakeReservation = roomRepository.getRoomByNumber(room_number);
 
         if(roomToMakeReservation.isIs_available()){
             reservation.setReservation_status(ReservationStatus.BOOKED);
