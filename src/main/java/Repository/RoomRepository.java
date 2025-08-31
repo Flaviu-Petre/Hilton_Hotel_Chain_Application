@@ -3,6 +3,7 @@ package Repository;
 import models.Hotel;
 import models.Room;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoomRepository {
@@ -12,8 +13,8 @@ public class RoomRepository {
     //endregion
 
     //region Constructors
-    public RoomRepository(List<Room> rooms) {
-        this.rooms = rooms;
+    public RoomRepository() {
+        this.rooms = new ArrayList<>();
     }
     //endregion
 
