@@ -36,6 +36,15 @@ public class RoomRepository {
         System.out.println("Room not found");
     }
 
+    public Room getRoomByNumber(String room_number) {
+        for (Room room : rooms) {
+            if (room.getRoom_number().equals(room_number)) {
+                return room;
+            }
+        }
+        return null;
+    }
+
     public List<Room> getRoomsForHotel(Integer hotelId) {
         Hotel searchHotel = hotelRepository.getHotel(hotelId);
         if (searchHotel == null) {

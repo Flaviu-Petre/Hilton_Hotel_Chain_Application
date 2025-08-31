@@ -30,6 +30,11 @@ public class RoomServiceImpl implements RoomServiceInterface {
     }
 
     @Override
+    public Room getRoomByNumber(String room_number) {
+        return roomRepository.getRoomByNumber(room_number);
+    }
+
+    @Override
     public List<Room> getRoomsForHotel(Integer hotelId) {
         return roomRepository.getRoomsForHotel(hotelId);
     }
