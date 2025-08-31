@@ -36,8 +36,8 @@ public class HotelManagementSystem {
         // Initialize Repositories
         this.hotelRepository = new HotelRepository();
         this.guestRepository = new GuestRepository();
-        this.roomRepository = new RoomRepository();
-        this.reservationRepository = new ReservationRepository();
+        this.roomRepository = new RoomRepository(hotelRepository);
+        this.reservationRepository = new ReservationRepository(roomRepository);
 
         // Initialize Services
         this.hotelService = new HotelServiceImpl(hotelRepository);

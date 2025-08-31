@@ -14,9 +14,9 @@ public class ReservationRepository {
     //endregion
 
     //region Constructors
-    public ReservationRepository() {
+    public ReservationRepository(RoomRepository roomRepository) {
         this.reservations = new ArrayList<>();
-        this.roomRepository = new RoomRepository();
+        this.roomRepository = roomRepository;
     }
     //endregion
 
