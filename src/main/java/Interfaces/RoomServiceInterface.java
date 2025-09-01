@@ -9,4 +9,5 @@ public interface RoomServiceInterface {
     void displayRoomDetails(String room_number);
     Room getRoomByNumber(String room_number);
     List<Room> getRoomsForHotel(Integer hotelId);
+    List<Room> getAllRooms();
 }
