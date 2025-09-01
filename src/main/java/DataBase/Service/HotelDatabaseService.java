@@ -4,6 +4,7 @@ import DAOs.HotelDAO;
 import models.Hotel;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class HotelDatabaseService {
     //region fields
@@ -11,13 +12,13 @@ public class HotelDatabaseService {
     //endregion
 
     //region Constructors
-    public HotelDatabaseService(HotelDAO hotelDAO) {
-        this.hotelDAO = hotelDAO;
+    public HotelDatabaseService() {
+        this.hotelDAO = new HotelDAO();
     }
     //endregion
 
     //region Methods
-    public boolean createHotelTable(Hotel hotel)  {
+    public boolean createHotel(Hotel hotel)  {
         if(hotel == null) {
             System.err.println("Cannot create hotel: Hotel object is null");
             return false;
@@ -76,6 +77,10 @@ public class HotelDatabaseService {
         }
 
         return success;
+    }
+
+    public List<Hotel> getHotels() {
+        return hotelDAO.getAllHotels();
     }
     //endregion
 }
