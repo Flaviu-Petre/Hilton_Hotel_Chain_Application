@@ -59,5 +59,39 @@ class ReservationRepositoryTest {
         assertEquals(ReservationStatus.BOOKED, reservation.getReservation_status());
     }
 
+    @Test
+    void testCancelRoomReservation(){
+        String roomNumber = "101";
+        Integer reservationId = 1;
+        Integer guestId = 1;
+        Integer hotelId = 1;
+        LocalDate checkInDate = LocalDate.of(2025, 9, 10);
+        LocalDate checkOutDate = LocalDate.of(2025, 9, 15);
+
+        Room availableRoom = new Room(roomNumber, "Single", true, hotelId);
+
+        Reservation reservation = new Reservation(
+                reservationId,
+                guestId,
+                roomNumber,
+                null,
+                checkInDate,
+                checkOutDate,
+                hotelId
+        );
+
+        when(roomRepository.getRoomByNumber(roomNumber)).thenReturn(availableRoom);
+
+        reservationRepository.makeReservationForRoom(reservation, roomNumber);
+
+        reservationRepository.cancelReservation(reservationId);
+
+        verify(roomRepository, times(2)).getRoomByNumber(roomNumber);
+
+        assertTrue(availableRoom.isIs_available());
+
+        assertEquals(ReservationStatus.CANCELLED, reservation.getReservation_status());
+    }
+
 
 }
